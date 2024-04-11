@@ -174,6 +174,9 @@ fn main() {
     std::io::stdout().flush().unwrap();
     let mut input = String::new();
     std::io::stdin().read_line(&mut input).unwrap();
+    if input.is_empty() {
+        return;
+    }
     let laddr = Laddr::from(input.trim());
     let v = build_laddr_rows(laddr);
     let mut t = Table::new(v);
